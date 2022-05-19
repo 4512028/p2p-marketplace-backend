@@ -12,7 +12,7 @@ p2p-backend:
     - echo "Deploy to qa server"
     - ssh-add <(echo "$SSH_KEY")
     - rm -rf .git
-    - ssh -o StrictHostKeyChecking=no p2p@65.108.111.186 "cd /home/p2p//home/p2p/p2pmarketplacebackend; git reset --hard; git pull origin main; npm i; pm2 restart server; pm2 logs server; exit"
+    - ssh -o StrictHostKeyChecking=no p2p@65.108.111.186 "cd /home/p2p//home/p2p/p2pmarketplacebackend; git reset --hard; git pull origin main; npm i; pm2 restart server; exit"
 
   only:
     - master
