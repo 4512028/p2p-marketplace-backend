@@ -1,7 +1,7 @@
 p2p:
   stage: deploy
   environment:
-    name: p2p
+    name: p2p backend
     
   before_script:
     - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
