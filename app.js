@@ -9,6 +9,7 @@ const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
 const offerRoutes = require('./routes/offerRoutes');
+const paymentMethodRoutes = require('./routes/paymentMethodRoutes');
 
 const globalErrHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
@@ -42,10 +43,17 @@ app.use(xss());
 // Prevent parameter pollution
 app.use(hpp());
 
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+mongoose.set('debug', true);
+
+
 
 // Routes
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/offer', offerRoutes);
+app.use('/api/v1/payment', paymentMethodRoutes);
+
 
 
 // handle undefined Routes

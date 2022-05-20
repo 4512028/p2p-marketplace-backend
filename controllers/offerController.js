@@ -32,25 +32,25 @@ exports.createOffer = async ( req, res, next ) => {
 	}
 };
 
-exports.buyOffers= async ( req, res ) => {
-	const offers = await Offer.find({preferredCurrency:'PKR',tradingMethod:'buy'}).populate('user name');
-	const worldWideOffers = await Offer.find({preferredCurrency:{$ne: 'PKR' },tradingMethod:'buy'}).populate('user name');
+exports.buyOffers = async ( req, res ) => {
+	const offers = await Offer.find({preferredCurrency: 'PKR', tradingMethod: 'buy'}).populate('user name');
+	const worldWideOffers = await Offer.find({preferredCurrency: {$ne: 'PKR'}, tradingMethod: 'buy'}).populate('user name');
 	
 	if ( offers ) {
 		res.status(200).json({
 			status: 'success',
-			data: {offers,worldWideOffers}
+			data: {offers, worldWideOffers}
 		});
 	}
 };
 exports.sellOffers = async ( req, res ) => {
-	const offers = await Offer.find({preferredCurrency:'PKR',tradingMethod:'sell'}).populate('user name');
-	const worldWideOffers = await Offer.find({preferredCurrency:{$ne: 'PKR' },tradingMethod:'sell'}).populate('user name');
+	const offers = await Offer.find({preferredCurrency: 'PKR', tradingMethod: 'sell'}).populate('user name');
+	const worldWideOffers = await Offer.find({preferredCurrency: {$ne: 'PKR'}, tradingMethod: 'sell'}).populate('user name');
 	
 	if ( offers ) {
 		res.status(200).json({
 			status: 'success',
-			data: {offers,worldWideOffers}
+			data: {offers, worldWideOffers}
 		});
 	}
 };
